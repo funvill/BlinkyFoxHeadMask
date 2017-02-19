@@ -24,14 +24,18 @@ int pattern ;
 void setup() {
   int brightness = 32 ; 
 
+  randomSeed(ESP.getCycleCount());
+
+  /*
   // I don't have a switch but I can restart the system easily. 
   // If i want it bright, i restart it until it shows brightly 
   int r = random(5) ; 
   if( r == 2 ) {
     brightness = 255 ; 
   }
+  */
   strip.setBrightness(brightness);
-
+  
   pattern = random(0,3);
 
 
@@ -40,6 +44,9 @@ void setup() {
 }
 
 void loop() {
+
+  //smile(); 
+  //return ; 
 
   switch( pattern) 
   {
@@ -96,7 +103,7 @@ void loop() {
   
   // theaterChaseRainbow(50);
 }
-/*
+
 void smile() {
     // Set everything black. 
   for(uint16_t i=0; i<strip.numPixels(); i++) {
@@ -123,7 +130,7 @@ void smile() {
   strip.show();
   delay(50); 
 }
-*/
+
 
 void randomFlashSticky() {
   for( int count = 0 ; count < 10 ; count++ ) { 
